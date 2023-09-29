@@ -15,6 +15,8 @@ class mesaSeeder extends Seeder
         //
         $mesa = [
             ['num_mesa' => '10', 'num_clients' => '5'],
+            ['num_mesa' => '12', 'num_clients' => '8'],
+            ['num_mesa' => '8', 'num_clients' => '10'],
         ];
         mesa::insert($mesa);
 

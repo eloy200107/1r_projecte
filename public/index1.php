@@ -49,6 +49,7 @@
         <li><a href="#">Pedidos</a></li>
         <li><a href="#">Contacto</a></li>
         <li><a href="#">Ubicacion</a></li>
+        <li><a href="carta.php">Carta</a></li>
     </ul>
 </div>
 

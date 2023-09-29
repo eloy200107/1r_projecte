@@ -14,7 +14,9 @@ class ClientSeeder extends Seeder
     {
         //
         $client = [
-            ['name' => 'Joan', 'DNI' => '49423676B', 'pedidos' => 'cigales'],
+            ['name' => 'Joan', 'DNI' => '49423676B', 'pedidos' => 'croquetas de jamon'],
+            ['name' => 'Marc', 'DNI' => '49353319B', 'pedidos' => 'pimientos de padron'],
+            ['name' => 'Josep', 'DNI' => '66367734S', 'pedidos' => 'Boquerons'],
         ];
 
        
