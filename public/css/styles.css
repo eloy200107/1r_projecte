@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Menú de Navegación en PHP</title>
-    <style>
+
         body {
-            background-image: url('img/foto.jpg');
+            background-image: url('http://localhost:8000/img/foto.jpg');
             background-size: cover;
             background-repeat: no-repeat;
         }
@@ -13,7 +9,7 @@
             list-style-type: none;
             margin: 0;
             padding: 0;
-            background-color: #333;
+            background-color: #f8f3f3;
             overflow: hidden;
         }
 
@@ -32,20 +28,4 @@
         li a:hover {
             background-color: #ddd;
         }
-    </style>
-</head>
-<body>
-
-<div>
-    <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Reserva</a></li>
-        <li><a href="#">Pedidos</a></li>
-        <li><a href="#">Contacto</a></li>
-        <li><a href="#">Ubicacion</a></li>
-        <li><a href="carta.php">Carta</a></li>
-    </ul>
-</div>
-
-</body>
-</html>
+  
