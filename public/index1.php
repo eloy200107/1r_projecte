@@ -31,14 +31,14 @@
 
         li a:hover {
             background-color: #ddd;
-        }
+        }   
     </style>
 </head>
 <body>
 
 <div>
     <ul>
-        <li><a href="#">Inicio</a></li>
+        <li><a href="index1.php">Inicio</a></li>
         <li><a href="#">Reserva</a></li>
         <li><a href="#">Pedidos</a></li>
         <li><a href="#">Contacto</a></li>

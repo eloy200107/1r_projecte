@@ -13,26 +13,45 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    <style>
+        /* Estilos para los enlaces de la barra de navegación */
+        .navbar-nav .nav-item {
+            margin-right: 10px; /* Espaciado entre los elementos */
+        }
+
+        .navbar-nav .nav-item:last-child {
+            margin-right: 0; /* Elimina el margen derecho del último elemento */
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff; /* Color del texto de los enlaces */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffcc00; /* Cambia el color al pasar el mouse por encima */
+        }
+
+        /* Estilo para la imagen de fondo */
+        .bg-image {
+            background-image: url('img/foto.jpg');
+            background-size: cover; /* Hace que la imagen de fondo cubra toda la página */
+            background-repeat: no-repeat;
+            height: 100vh; /* Establece la altura de la imagen de fondo como el 100% de la ventana */
+        }
+    </style>
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
 
 
-    <div id="app">
-    <div
-  class="bg-image"
-  style="
-    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/77.webp');
-    height: 50vh;
-  "
->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-
-       
+<div id="app">
+    <div class="bg-image">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    Bar tapes
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -41,49 +60,63 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        <!-- Tus enlaces izquierdos aquí -->
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-    <!-- Authentication Links -->
-    @guest
-        @if (Route::has('login'))
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-            </li>
-        @endif
+                        <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
 
-        @if (Route::has('register'))
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-            </li>
-        @endif
-    @else
-        <li class="nav-item">
-                 <a class="nav-link" href="index1.php">Ir a index1.php</a>
-        </li>
-        <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                {{ Auth::user()->name }}
-            </a>
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
 
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-primary" href="/ubicacion">Ubicación</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-primary" href="/reserva">Reserva</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-primary" href="/inicio">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-primary" href="/carta">Carta</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-primary" href="/contacto">Contacto</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-primary" href="/pedidos">Pedidos</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
-
-             
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </div>
-        </li>
-    @endguest
-</ul>
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -92,7 +125,6 @@
             @yield('content')
         </main>
     </div>
-
 </div>
 </body>
 </html>
