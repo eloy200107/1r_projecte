@@ -16,7 +16,7 @@ class PlateSeeder extends Seeder
         $plate = [
             ['quantity' => '3'],
         ];
-        plate::insert($plate);
+        Plate::insert($plate);
 
     }
 }

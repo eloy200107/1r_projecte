@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\mesa;
+use App\Models\Mesa;
 class mesaSeeder extends Seeder
 {
     /**
@@ -18,7 +18,7 @@ class mesaSeeder extends Seeder
             ['num_mesa' => '12', 'num_clients' => '8'],
             ['num_mesa' => '8', 'num_clients' => '10'],
         ];
-        mesa::insert($mesa);
+        Mesa::insert($mesa);
 
     }
     }

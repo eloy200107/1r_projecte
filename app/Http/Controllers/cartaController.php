@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class carta extends Controller
+use App\Models\Menu;
+
+class cartaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $carta= Menu::all();
+        return view('index', compact('carta'));
     }
 
     /**
@@ -41,14 +44,36 @@ class carta extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+          'name' => 'required' ,  
+        ]);
+
+        $carta = Carta::findOrFail($id);
+        $carta->update($request->all());
+    
+        return redirect()->route('index')
+        ->with('success','carta actualitzada correctament');
     }
+    
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+      echo  "eliminar carta" .$id;
+      $carta = Carta::findOrFail($id);
+      try{
+        $result = $carta->delete();
+      }
+      catch(\Iluminate\Database\QueryException $e) {
+        return redirect()->route('index')
+        ->with('error','Error esborrant la carta');
+      }
+      return redirect()->route('index')
+      ->with('success','Carta esborrada correctament');
     }
+
 }
+

@@ -7,8 +7,8 @@
 <table>
 	@foreach($carta as $carta)
 	<tr>
-		<td>{{$carta->id}}
-		<td>{{$carta->name}}
+		<td>{{$carta->id}}</td>
+		<td>{{$carta->nom_plat}}
 </td>
 </tr>
 @endforeach

@@ -36,9 +36,11 @@ Route::get('/reserva', function () {
 Route::get('/contacto', function () {
     return view('contacto');
 });
-Route::get('/carta', function () {
-    return view('carta');
-});
+
+Route::get('/carta', [App\Http\Controllers\cartaController::class, 'index']);
+
+
+
 Route::get('/inicio', function () {
     return view('inicio');
 });
