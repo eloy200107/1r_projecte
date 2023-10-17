@@ -14,9 +14,12 @@ class mesaSeeder extends Seeder
     {
         //
         $mesa = [
-            ['num_mesa' => '10', 'num_clients' => '5'],
-            ['num_mesa' => '12', 'num_clients' => '8'],
-            ['num_mesa' => '8', 'num_clients' => '10'],
+            ['num_mesa' => '1', 'reservada' => false ],
+            ['num_mesa' => '2', 'reservada' => false ],
+            ['num_mesa' => '3', 'reservada' => false ],
+            ['num_mesa' => '4', 'reservada' => false ],
+            ['num_mesa' => '5', 'reservada' => false ],
+
         ];
         Mesa::insert($mesa);
 

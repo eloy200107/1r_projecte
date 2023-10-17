@@ -15,7 +15,7 @@ class BarSeeder extends Seeder
     {
         //
         $Bar = [
-            ['direction'=> 'Travessera Gael, 3, Bajos(Tarragona)'],
+            ['direction'=> 'Travessera Gael, 3, Bajos(Tarragona)', 'telefon' => '773877323', 'email'=> 'eltapino@gmail.com'],
 			
 		];
 

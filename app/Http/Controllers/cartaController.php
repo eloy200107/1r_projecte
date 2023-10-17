@@ -8,6 +8,11 @@ use App\Models\Menu;
 
 class cartaController extends Controller
 {
+
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
     /**
      * Display a listing of the resource.
      */
@@ -26,7 +31,7 @@ class cartaController extends Controller
             'title' => 'required|max:255',
             'body' => 'required',
           ]);
-          carta::create($request->all());
+          Menu::create($request->all());
           return redirect()->route('posts.index')
             ->with('success','Post created successfully.');
     }
@@ -34,9 +39,10 @@ class cartaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function edit(string $id)
     {
-        //
+        $carta = Menu::findOrFail($id);
+        return view('edit', compact('carta'));
     }
 
     /**
@@ -45,13 +51,13 @@ class cartaController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-          'name' => 'required' ,  
+          'nom_plat' => 'required' ,  
         ]);
 
-        $carta = Carta::findOrFail($id);
+        $carta = Menu::findOrFail($id);
         $carta->update($request->all());
     
-        return redirect()->route('index')
+        return redirect()->to('/carta')
         ->with('success','carta actualitzada correctament');
     }
     
@@ -63,15 +69,15 @@ class cartaController extends Controller
     public function destroy(string $id)
     {
       echo  "eliminar carta" .$id;
-      $carta = Carta::findOrFail($id);
+      $carta = Menu::findOrFail($id);
       try{
         $result = $carta->delete();
       }
       catch(\Iluminate\Database\QueryException $e) {
-        return redirect()->route('index')
+        return redirect()->to('/carta')
         ->with('error','Error esborrant la carta');
       }
-      return redirect()->route('index')
+      return redirect()->to('/carta')
       ->with('success','Carta esborrada correctament');
     }
 

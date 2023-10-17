@@ -1,0 +1,13 @@
+/* carta.css */
+table {
+    border-collapse: collapse;
+    width: 30%;
+    margin: 0 auto;
+}
+
+table th,
+table td {
+    border: 1px solid #0e0d0d;
+    padding: 8px;
+    background-color: white; /* Establecer el fondo en blanco */
+}

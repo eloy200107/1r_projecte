@@ -7,11 +7,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'El Tapino') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+   
+   
 
     <style>
         /* Estilos para los enlaces de la barra de navegación */
@@ -36,22 +38,27 @@
             background-image: url('img/foto.jpg');
             background-size: cover; /* Hace que la imagen de fondo cubra toda la página */
             background-repeat: no-repeat;
-            height: 100vh; /* Establece la altura de la imagen de fondo como el 100% de la ventana */
+            width: 100%;
+          
         }
     </style>
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    
+    
 </head>
-<body>
+<body class="bg-image">
 
 
 <div id="app">
-    <div class="bg-image">
+    <div class="">
+        
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Bar tapes
+                <a class="navbar-brand" href="{{ url('/inicio') }}">
+                    El Tapino
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -87,17 +94,12 @@
                                 <a class="nav-link btn btn-primary" href="/reserva">Reserva</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link btn btn-primary" href="/inicio">Inicio</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link btn btn-primary" href="/carta">Carta</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link btn btn-primary" href="/contacto">Contacto</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link btn btn-primary" href="/pedidos">Pedidos</a>
-                            </li>
+                           
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -122,7 +124,9 @@
         </nav>
 
         <main class="py-4">
+            <div class="container">
             @yield('content')
+            </div>
         </main>
     </div>
 </div>

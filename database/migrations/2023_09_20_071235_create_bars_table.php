@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('bars', function (Blueprint $table) {
             $table->id();
             $table->string('direction',75);
+            $table->string('telefon',75);
+            $table->string('email',75);
             $table->timestamps();
         });
     }

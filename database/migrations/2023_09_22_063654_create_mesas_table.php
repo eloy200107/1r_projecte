@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('mesas', function (Blueprint $table) {
             $table->id();
             $table->string('num_mesa',75);
-            $table->string('num_clients',75);
+            $table->boolean('reservada');
             $table->timestamps();
         });
     }
