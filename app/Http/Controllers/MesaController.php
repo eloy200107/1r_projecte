@@ -11,41 +11,47 @@ class MesaController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function index()
     {
         // Obtener la lista de mesas desde la base de datos
         $mesas = Mesa::all();
-
-        return view('reserva', compact('mesas'));
+        return view('mesas', compact('mesas'));
     }
 
-    public function reservar(Request $request)
+    public function reservar(Mesa $mesa)
     {
-        $mesa_id = $request->input('mesa_id');
-        $usuario = $request->input('usuario');
-
-        // Verificar si la mesa está disponible
-        $mesa = Mesa::find($mesa_id);
-
-        if (!$mesa) {
-            return redirect()->route('reserva')->with('error', 'Mesa no encontrada.');
-        }
-
-        if ($mesa->reservada) {
-            return redirect()->route('reserva')->with('error', 'Mesa ya reservada.');
-        }
-
-        // Realizar la reserva
+    
+        // Obtiene el usuario actual que está realizando la reserva
+        $usuarioReserva = auth()->user(); 
+    
+        // Marca la mesa como reservada y guarda el nombre de usuario que la reservó
         $mesa->reservada = true;
+        $mesa->user_id = $usuarioReserva->id;
         $mesa->save();
+    
+        return redirect('/mesas')->with('success', 'Mesa reservada exitosamente');
+    }
 
-        // Registrar la reserva en la base de datos
-        Mesa::create([
-            'nombre' => $mesa->nombre,
-            'reservada' => true,
+    public function edit(string $id)
+    {
+        $mesa = Mesa::findOrFail($id);
+        return view('editmesa', compact('mesa'));
+    }
+
+    public function update(Request $request, string $id)
+    {
+        $request->validate([
+          'reservada' => 'required' ,
+          
         ]);
 
-        return redirect()->route('reserva')->with('success', 'Reserva exitosa.');
+        $mesa = Mesa::findOrFail($id);
+
+        $mesa->update($request->all());
+    
+       return redirect()->to('/mesas')
+          ->with('success','Mesa actualizada correctamente');
     }
 
 }

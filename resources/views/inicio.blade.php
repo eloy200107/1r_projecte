@@ -1,6 +1,6 @@
 <link href="{{ asset('css/inicio.css') }}" rel="stylesheet">
 @extends('layouts.app')
-
+<title>El Tapino</title>
 @section('content')
 
 <div class="container">

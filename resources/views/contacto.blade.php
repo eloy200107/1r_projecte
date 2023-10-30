@@ -1,20 +1,23 @@
-<title>El Tapino</title>
-    <link href="{{ asset('css/ubicacion.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('css/contacto.css') }}" rel="stylesheet">
 </head>
 <body>
-    @extends('layouts.app')
-
-    @section('content')
-    <table>
-    @foreach($bars as $bars)
-    <tr>
-        <td>{{ $bar->direction }}</td>
-        <td>{{ $bar->telefon }}</td>
-        <td>{{ $bar->email }}</td>
-    </tr>
+@extends('layouts.app')
+<title>El Tapino</title>
+@section('content')
+<table>
+@foreach($bars as $bar)
+<tr>
+    <td>Direccion</td>
+    <td>{{ $bar->direction }}</td>
+    <td>{{ $bar->telefon }}</td>
+    <td>{{ $bar->email }}</td>
+    @if(Auth::user()->is_admin)         
+        <td><a href="/editcont/{{ $bar->id }}">Editar</a></td>
+        <td><a href="/destroy/{{$bar->id}}">Borrar</a></td>
+    @endif
+</tr>
 @endforeach
-
-        
-    </table>
-    @endsection
+</table>
+@endsection
 

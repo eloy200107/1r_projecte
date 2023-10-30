@@ -10,6 +10,6 @@ class Menu extends Model
     use HasFactory;
     // afegir per protegir el model d'assignacions massives quan es crea un nou objecte. 
     protected $fillable = [
-        'nom_plat'
+        'nom_plat', 'preu'
     ];
 }

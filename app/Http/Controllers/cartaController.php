@@ -12,6 +12,7 @@ class cartaController extends Controller
   public function __construct()
   {
       $this->middleware('auth');
+      
   }
     /**
      * Display a listing of the resource.
@@ -22,18 +23,25 @@ class cartaController extends Controller
         return view('index', compact('carta'));
     }
 
+    public function create()
+    {
+        return view("create");
+    }
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:255',
-            'body' => 'required',
-          ]);
-          Menu::create($request->all());
-          return redirect()->route('posts.index')
-            ->with('success','Post created successfully.');
+          'nom_plat' => 'required',
+          'preu' => 'required',             
+      ]);
+
+      Menu::create($request->all());
+   
+      return redirect()->to('/carta')
+                      ->with('success','Plato creado correctamente.');
     }
 
     /**
@@ -60,8 +68,6 @@ class cartaController extends Controller
         return redirect()->to('/carta')
         ->with('success','carta actualitzada correctament');
     }
-    
-
 
     /**
      * Remove the specified resource from storage.
@@ -80,6 +86,9 @@ class cartaController extends Controller
       return redirect()->to('/carta')
       ->with('success','Carta esborrada correctament');
     }
+    
+        
+    }
 
-}
+
 

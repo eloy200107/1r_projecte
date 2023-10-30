@@ -91,7 +91,7 @@
                                 <a class="nav-link btn btn-primary" href="/ubicacion">Ubicación</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link btn btn-primary" href="/reserva">Reserva</a>
+                                <a class="nav-link btn btn-primary" href="/mesas">Reserva</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link btn btn-primary" href="/carta">Carta</a>

@@ -60,6 +60,7 @@ class AuthController extends Controller
 	
 	    return redirect("/")->withSuccess('No tienes acceso, por favor inicia sesión');
     }
+	
 }
 
                             

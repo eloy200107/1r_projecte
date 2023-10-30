@@ -19,7 +19,12 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->unsignedBigInteger('role_id')->default(0);
+            $table->string('role')->default("normal");
         });
+
+
+        
     }
 
     /**
@@ -28,5 +33,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('users');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };

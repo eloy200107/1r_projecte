@@ -1,5 +1,13 @@
 @extends('layouts.app')
 @section('content')
+<style>
+    .mt-5{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    }
+
+</style>
 
 <div class="container mt-5">
     <h1 class="text-center">El Tapino</h1>
@@ -20,19 +28,19 @@
     </div>
 
     <div class="mt-4">
-        <form action="{{ route('update',$carta->id) }}" method="POST">
+        <form action="{{ route('store') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="nom_plat" class="form-label"><strong>Nombre:</strong></label>
-                <input type="text" class="form-control" id="nom_plat" name="nom_plat" value="{{ $carta->nom_plat }}">
+                <label for="nom_plat" class="form-label"><strong>Nombre del plato:</strong></label>
+                <input type="text" class="form-control" id="nom_plat" name="nom_plat">
             </div>
             
             <div class="mb-3">
                 <label for="preu" class="form-label"><strong>Precio:</strong></label>
-                <input type="text" class="form-control" id="preu" name="preu" value="{{ $carta->preu }}">
+                <input type="text" class="form-control" id="preu" name="preu">
             </div>
             
-            <button type="submit" class="btn btn-success">Actualizar</button>
+            <button type="submit" class="btn btn-success">Añadir</button>
         </form>
     </div>
 </div>

@@ -1,23 +1,31 @@
-<title>El Tapino</title>
+
 <link href="{{ asset('css/carta.css') }}" rel="stylesheet">
 
 @extends('layouts.app')
-
-@section('content')
 <title>El Tapino</title>
-  
+@section('content')
+ 
+@if(Auth::user()->is_admin)
+<div class="crear">
+<a href="{{ route('create') }}">Añadir plato</a>
+</div>
+@endif
+
 <table>
 	@foreach($carta as $carta)
 	<tr>
-		<td>{{$carta->id}}</td>
 		<td>{{$carta->nom_plat}}
-		<a href="/edit/{{$carta->id}}"> Editar</a>
 		<td>{{$carta->preu}}
-		<a href="/destroy/{{$carta->id}}">Borrar</a>
-		
-</td>
-</tr>
-@endforeach
+		@if(Auth::user()->is_admin)
+		<a href="/edit/{{$carta->id}}"> Editar</a>         
+		<a href="/destroy/{{$carta->id}}">Borrar</a><br>
+		@endif
+		</td>
+	</tr>
+	@endforeach
 </table>
+
+
+
 @endsection
 					

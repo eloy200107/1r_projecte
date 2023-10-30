@@ -1,0 +1,28 @@
+body {
+    background-image: url('http://localhost:8000/img/foto.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+img {
+    margin-top: 25px;
+    margin-left: -50px;
+    width: 110%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background-color: white; /* Fondo blanco para la tabla */
+}
+
+table, th, td {
+    border: 1px solid #000; /* Añade bordes a la tabla y a las celdas */
+}
+
+th, td {
+    padding: 10px; /* Añade espaciado interno a las celdas de la tabla */
+    text-align: left; /* Alinea el contenido de las celdas a la izquierda */
+    background-color: white; /* Fondo blanco para las celdas */
+}

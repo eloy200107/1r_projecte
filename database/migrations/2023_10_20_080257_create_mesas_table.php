@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('mesas', function (Blueprint $table) {
             $table->id();
-            $table->string('num_mesa',75);
-            $table->boolean('reservada');
+            $table->boolean('reservada')->default(false);
+            $table->bigInteger('user_id')->nullable();
             $table->timestamps();
         });
     }

@@ -14,11 +14,11 @@ class mesaSeeder extends Seeder
     {
         //
         $mesa = [
-            ['num_mesa' => '1', 'reservada' => false ],
-            ['num_mesa' => '2', 'reservada' => false ],
-            ['num_mesa' => '3', 'reservada' => false ],
-            ['num_mesa' => '4', 'reservada' => false ],
-            ['num_mesa' => '5', 'reservada' => false ],
+            ['id' => '1', 'reservada' => false , 'user_id' => null],
+            ['id' => '2', 'reservada' => false , 'user_id' => null],
+            ['id' => '3', 'reservada' => false , 'user_id' => null],
+            ['id' => '4', 'reservada' => false , 'user_id' => null],
+            ['id' => '5', 'reservada' => false , 'user_id' => null],
 
         ];
         Mesa::insert($mesa);

@@ -10,4 +10,38 @@ table td {
     border: 1px solid #0e0d0d;
     padding: 8px;
     background-color: white; /* Establecer el fondo en blanco */
+    
+}
+
+.contenedor{
+    margin: 0 auto;
+    text-align: center;
+    font-size: 20px;
+    background-color: #255296;
+    padding: 10px;
+    border-radius: 10px; 
+    width: 20%;
+}
+
+.contenedor h1{
+    color: white;
+}
+
+.crear a{
+    float: right;
+    background-color: white;
+    border-radius: 10px; 
+    font-size: 20px;
+}
+
+p{
+    color: white;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:hover{
+    color: #255296;
 }
