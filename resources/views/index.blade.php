@@ -15,7 +15,7 @@
 	@foreach($carta as $carta)
 	<tr>
 		<td>{{$carta->nom_plat}}
-		<td>{{$carta->preu}}
+		<td>{{$carta->preu}}€
 		@if(Auth::user()->is_admin)
 		<a href="/edit/{{$carta->id}}"> Editar</a>         
 		<a href="/destroy/{{$carta->id}}">Borrar</a><br>

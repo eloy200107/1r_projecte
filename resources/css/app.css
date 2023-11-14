@@ -1,0 +1,20 @@
+llista {
+    font-size: 1rem;
+    margin: 0;    
+    padding: 0;   
+    display: grid;
+}
+
+planeta {
+    padding: 0.5rem 1.5rem 1rem;
+    border-radius: 1.5rem;
+    background: lightgray;
+    min-height: 50px;
+}
+
+planeta[selected="true"] { background-color: DarkGray; }
+planeta[deleted="true"] { background-color: white; }
+
+planeta + planeta {
+    margin-top: 0.5rem;
+}

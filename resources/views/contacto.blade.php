@@ -7,8 +7,12 @@
 @section('content')
 <table>
 @foreach($bars as $bar)
+<tr> 
+    <td><b>Dirección</b></td>
+    <td><b>Teléfono</b></td>
+    <td><b>Email<b></td>
+</tr>
 <tr>
-    <td>Direccion</td>
     <td>{{ $bar->direction }}</td>
     <td>{{ $bar->telefon }}</td>
     <td>{{ $bar->email }}</td>
